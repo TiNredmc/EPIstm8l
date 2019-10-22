@@ -30,7 +30,7 @@ Installation Guide
 2. git clone https://github.com/TiNredmc/EPIstm8l
 3. cp EPIstm8l/* stm8l_sdcc_template/lib/
 4. cd stm8l_sdcc_template/code/EPI/
-5. make all 
+5. connect the mcu to STlink then run make all && make flash
 6. connect the jumper wire by following the bellow instruction
 
 Connecting Up 
