@@ -1,4 +1,4 @@
-# EPIstm8l Libtaty
+# EPIstm8l Library (WIP)
 E paper interfacing (EPI) Library for stm8l for interfacing with GDEW0102I4FC 1.02 inch Flexible E paper (or E ink) display from Good display.
 
 I want too !
@@ -24,3 +24,25 @@ Requirement
 6. Pin header for STM8l breakout board (1.) OPTIONAL.
 7. breadboard OPTIONAL.
 
+Installation Guide
+=
+1. git clone https://github.com/TiNredmc/stm8l_sdcc_template
+2. git clone https://github.com/TiNredmc/EPIstm8l
+3. cp EPIstm8l/* stm8l_sdcc_template/lib/
+4. cd stm8l_sdcc_template/code/EPI/
+5. make all 
+6. connect the jumper wire by following the bellow instruction
+
+Connecting Up 
+=
+```
+ * E paper connection:
+ * from Display adapter -> MCU
+ * 1 RST -> PB1 O
+ * 2 CE  -> PB4 O
+ * 3 DC  -> PD0 O
+ * 4 DIN -> PB6 O
+ * 5 CLK -> PB5 O 
+ * 6 BUSY -> PB0 I
+ ```
+ YOU MUST USE SAME POWER LINE BOTH DISPLAY AND MCU, FROM 2.6 to 3.3 volt (+- 0.4). 
