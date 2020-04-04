@@ -83,7 +83,7 @@ void EPI_write_dat(unsigned char cmd){// write byte as display data
 }
 
 void EPI_wait(){// wait until the display ready 
-while ( ~(PB_IDR & (0 << epi_busy)) );// wait the reversed busy status because the "while" need 1 to loop
+while (!(PB_IDR & (0 << epi_busy)) );// wait the reversed busy status because the "while" need 1 to loop
 }
 
 
