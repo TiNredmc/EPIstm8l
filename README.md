@@ -38,11 +38,11 @@ Connecting Up
 ```
  * E paper connection:
  * from Display adapter -> MCU
- * 1 RST -> PB1 O
- * 2 CE  -> PB4 O
- * 3 DC  -> PD0 O
- * 4 DIN -> PB6 O
- * 5 CLK -> PB5 O 
- * 6 BUSY -> PB0 I
+ * DIN -> PB7
+ * CLK -> PB6
+ * CS  -> PB5
+ * DC  -> PB4
+ * RST -> PB3
+ * BUSY-> PB2
  ```
  YOU MUST USE SAME POWER LINE BOTH DISPLAY AND MCU, FROM 2.6 to 3.3 volt (+- 0.4). 
