@@ -10,27 +10,25 @@
 /*
  * E paper connection:
  * from Display -> MCU
- * 1 RST -> PB1 O
- * 2 CE  -> PB4 O
- * 3 DC  -> PD0 O
- * 4 DIN -> PB6 O
- * 5 CLK -> PB5 O 
- * 6 BUSY -> PB0 I
+ * DIN -> PB7
+ * CLK -> PB6
+ * CS  -> PB5
+ * DC  -> PB4
+ * RST -> PB3
+ * BUSY-> PB2
  */
 
-#define epi_dc 0 // data/command mode pin
-#define epi_ce 4 // chip enable 
-#define epi_rst 1 // quick reset 
-#define epi_clk 5 // clock
-#define epi_dout 6 // data input (to the display)
-#define epi_busy 0 // check for busy
+#define epi_dout 7 // data input (to the display)
+#define epi_clk 6 // clock
+#define epi_ce 5 // chip enable 
+#define epi_dc 4 // data/command mode pin
+#define epi_rst 3 // quick reset 
+#define epi_busy 2 // check for busy
 
 void EPI_gpio_init() {
 /* part for the Output only */    
-	PB_DDR |= (1 << epi_ce) | (1 << epi_rst) | (1 << epi_clk) | (1 << epi_dout) ;// portB direct register
-	PD_DDR |= (1 << epi_dc);// portD direct register
-	PB_CR1 |= (1 << epi_ce) | (1 << epi_rst) | (1 << epi_clk) | (1 << epi_dout) ;// portB control register 1
-	PD_CR1 |= (1 << epi_dc);// portD control register 1
+	PB_DDR |= (1 << epi_ce) | (1 << epi_rst) | (1 << epi_clk) | (1 << epi_dout) | (1 << epi_dc);// portB direct register
+	PB_CR1 |= (1 << epi_ce) | (1 << epi_rst) | (1 << epi_clk) | (1 << epi_dout) | (1 << epi_dc);// portB control register 1
 /* part for the input only */
 	PB_DDR |= (0 << epi_busy) ;// set PB0 as input using Direct register
 	PB_CR1 |= (0 << epi_busy) ; // set control register of CR1 as 0 (as well with CR2) for normal input no-interrupt and no pull up.
